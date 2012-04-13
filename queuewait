@@ -1,0 +1,20 @@
+#!/usr/local/bin/perl
+
+open FILE, "mailq |";
+
+our $cnt = 0;
+our $flag;
+
+$flag = "!" if $0 =~ /hold$/;
+$flag = " " if $0 =~ /wait$/;
+$flag = "\\*" if $0 =~ /active$/;
+$flag = "X" if $0 =~ /load$/;
+
+while(<FILE>) {
+	$cnt++ if /^\S.{11}${flag}/;
+}
+
+close FILE;
+
+print "$cnt\n";
+

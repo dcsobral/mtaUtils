@@ -1,0 +1,6 @@
+Just a few scripts that make some measurements out of running mailq.
+I use them with Zabbix, and, though crude, we have detected many
+anomalous conditions with them..
+
+The queue* scripts are really the same. You may as well hardlink them all.
+
